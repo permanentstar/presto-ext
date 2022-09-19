@@ -23,11 +23,15 @@
     <groupId>com.daasyyds.presto</groupId>
     <artifactId>presto-ext</artifactId>
     <packaging>pom</packaging>
-    <version>0.276.1-SNAPSHOT</version>
+    <version>0.276.1-202209.1</version>
     <modules>
         <module>hive-connector-patch</module>
         <module>hudi-connector-patch</module>
     </modules>
+
+    <description>presto extension align with presto version</description>
+    <url>https://github.com/permanentstar/presto-ext</url>
+    <name>presto-ext</name>
 
     <licenses>
         <license>
@@ -147,11 +151,37 @@
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-source-plugin</artifactId>
                         <version>3.2.1</version>
+                        <configuration>
+                            <attach>true</attach>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>attach-sources</id>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
                     </plugin>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-javadoc-plugin</artifactId>
                         <version>3.3.2</version>
+                        <configuration>
+                            <quiet>true</quiet>
+                            <detectOfflineLinks>false</detectOfflineLinks>
+                            <additionalJOptions combine.children="append">
+                                <additionalJOption>-Xdoclint:none</additionalJOption>
+                            </additionalJOptions>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>attach-javadocs</id>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
                     </plugin>
                 </plugins>
             </build>

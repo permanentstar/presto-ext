@@ -56,7 +56,7 @@ import static org.apache.hadoop.hive.serde2.ColumnProjectionUtils.READ_ALL_COLUM
 import static org.apache.hadoop.hive.serde2.ColumnProjectionUtils.READ_COLUMN_IDS_CONF_STR;
 import static org.apache.hadoop.hive.serde2.ColumnProjectionUtils.READ_COLUMN_NAMES_CONF_STR;
 
-class HudiRecordCursors
+public class HudiRecordCursors
 {
     private HudiRecordCursors() {}
 
